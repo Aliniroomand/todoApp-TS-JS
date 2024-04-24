@@ -19,36 +19,47 @@ body {
     position: relative;
     top: 0;
     left: 20vw;
-    min-height: 100vh;
+    height: 100vh;
     width: 60vw;
-
-  background-color: #333;
     color: #333;
     padding: 1rem;
     display: flex;
     flex-direction: column;
+}
+.woodenBG{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    left: 0;
+    top: 0;
 }
 .mainBG{
 position: fixed;
 left: 20vw;
 width: 60vw;
 height: 100vh;
+z-index: 0;
 
 }
 
 main {
     flex-grow: 1;
     margin: auto;
-    width: 100%;
-    max-width: 800px;
+    width: 70vw;
+    left: 15vw;
     display: flex;
+    z-index: 2;
+    position: fixed;
     flex-flow: column nowrap;
 }
 
 section {
-    border: 1px solid whitesmoke;
+    position: absolute;
+    left: 10%;
+    width: 80%;
+    height: 100vh;
     border-radius: 10px;
-    padding: 0.5rem;
 }
 
 .button {
@@ -62,34 +73,45 @@ section {
 }
 
 .newItemEntry {
-    position: sticky;
-    top: 0;
-    margin-bottom: 1rem;
+    position: absolute;
+    top: 10vh;
+    z-index: 2;
+    padding: 0;
+    left: 10%;
+    width: 80%;
 }
 
 .newItemEntry__form {
     display: flex;
-    gap: 0.25rem;
     font-size: 1.5rem;
+    height: 10vh;
 }
 
 .newItemEntry__input {
-    width: calc(100% - (0.25rem + 48px));
+    width: 100%;
     flex-grow: 1;
-    border: 2px solid whitesmoke;
     border-radius: 10px;
     padding: 0.5em;
+    border: none;
+    background: transparent;
+    box-shadow: inset 0 0 10px #333;
 }
 
 .newItemEntry__button {
-    background-color: #3333337e;
-    color:#fff;
-    padding: 0.75em;
+    box-shadow: inset 0 0 10px #333;
+    border: none;
+}
+.newItemEntry__button img{
+    width: 20px;
+    height: 20px;
+    transition: 0.3s;
 }
 
-.newItemEntry__button:hover,
-.newItemEntry__button:focus {
-    color: limegreen;
+.newItemEntry__button:hover >img,
+.newItemEntry__button:focus >img {
+    transition: 0.3s;
+    transform: rotateZ(90deg)scale(2);
+
 }
 
 .listContainer {
@@ -98,6 +120,11 @@ section {
     display: flex;
     flex-flow: column;
     gap: 1rem;
+    position: absolute;
+    top: 21vh;
+    height: 76vh ;
+    overflow-y: scroll;
+    z-index: 3;
 }
 
 .listTitle {
@@ -108,7 +135,6 @@ section {
 
 .listTitle__button {
     background-color: transparent;
-    color: whitesmoke;
     padding: 0.25em;
 }
 
@@ -123,8 +149,10 @@ section {
 .item {
     display: flex;
     align-items: center;
-    padding-top: 1em;
-    gap: 1em;
+    padding-top: 10px;
+    gap:20px;
+    transition: 0.3s;
+
 }
 
 .item > input[type="checkbox"] {
@@ -132,20 +160,27 @@ section {
     min-width: 2.5rem;
     min-height: 2.5rem;
     cursor: pointer;
+    transition: 0.3s;
+
 }
 
 .item > input[type="checkbox"]:checked + label {
     text-decoration: line-through;
+    transition: 0.3s;
 }
 
 .item > label {
     flex-grow: 1;
     word-break: break-all;
+    transition: 0.3s;
+
 }
 
 .item > button:hover, 
 .item > button:focus {
     color: red;
+    transition: 0.3s;
+
 }
 
 @media (min-width: 768px) {
